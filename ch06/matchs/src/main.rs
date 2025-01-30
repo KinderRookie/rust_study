@@ -24,6 +24,8 @@ fn main() {
     }
 
 
+
+
 }
 
 enum Coins {
@@ -66,6 +68,24 @@ fn value_in_cents_state(coin: StateCoin) -> u8 {
             println!("State quarter from {:?}", state); // -> 값이 바인딩 된다.
             25
         }
+    }
+}
+
+
+fn count_coins(coin: Coins) {
+    let mut count: u32 = 0;
+    match coin {
+        StateCoin::Quarter(state) => println!("State quarter from {:?}!", state),
+        _ => count += 1,
+    }
+}
+
+fn count_coins_easy(coin: Coins) {
+    let mut count: u32 = 0;
+    if let StateCoin::Quarter(state) = coin {
+        println!("State quarter from {:?}!", state);
+    } else {
+        count += 1;
     }
 }
 
